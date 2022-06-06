@@ -1,16 +1,14 @@
 const mongoose = require("mongoose");
-let DB_URL = process.env.DB_URL;// here we are using the MongoDB Url we defined in our ENV file
+let DB_URL = process.env.DB_URL;
 
-module.exports = async function connection() {
+module.exports = connection = async() => {
   try {
     await mongoose.connect(
       DB_URL,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        useFindAndModify: false,
         useCreateIndex: true,
-        autoIndex: true,
       },
       (error) => {
         if (error) return new Error("Failed to connect");

@@ -2,7 +2,6 @@ const JWT = require("jsonwebtoken");
 const User = require("../models/User.model");
 const Token = require("../models/Token.model");
 const sendEmail = require("../utils/email/sendEmail");
-const crypto = require("crypto");
 const bcrypt = require("bcrypt");
 
 const JWTSecret = process.env.JWT_SECRET;
@@ -26,7 +25,7 @@ const signup = async (data) => {
   });
 };
 
-const requestPasswordReset = async (email) => {
+const requestPasswrdReset = async (email) => {
   const user = await User.findOne({ email });
   if (!user) throw new Error("Email does not exist");
 
@@ -51,7 +50,7 @@ const requestPasswordReset = async (email) => {
       name: user.name,
       link: link,
     },
-    "./template/requestResetPassword.handlebars"
+    "./template/requestResetPasswrd.handlebars"
   );
   return link;
 };

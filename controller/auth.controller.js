@@ -9,24 +9,24 @@ const {
     return res.json(signupService);
   };
   
-  const resetPasswordRequestController = async (req, res, next) => {
-    const requestPasswordResetService = await requestPasswordReset(
+  const resetPasswrdRequestController = async (req, res, next) => {
+    const requestPasswrdResetService = await requestPasswrdReset(
       req.body.email
     );
-    return res.json(requestPasswordResetService);
+    return res.json(requestPasswrdResetService);
   };
   
-  const resetPasswordController = async (req, res, next) => {
-    const resetPasswordService = await resetPassword(
+  const resetPasswrdController = async (req, res, next) => {
+    const resetPasswrdService = await resetPasswrd(
       req.body.userId,
       req.body.token,
       req.body.password
     );
-    return res.json(resetPasswordService);
+    return res.json(resetPasswrdService);
   };
   
   module.exports = {
     signUpController,
-    resetPasswordRequestController,
-    resetPasswordController,
+    resetPasswrdRequestController,
+    resetPasswrdController,
   };

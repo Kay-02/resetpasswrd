@@ -8,22 +8,19 @@ const userSchema = new Schema(
       type: String,
       trim: true,
       required: true,
-      unique: true,
       max: 64
     },
     email: {
       type: String,
       trim: true,
       required: true,
-      unique: true,
       
     },
-    password: { 
+    password: {
       type: String.
-     required: true,
-     },
-  },
-  {
+    }
+    
+  ,
     timestamps: true,
   }
 );
